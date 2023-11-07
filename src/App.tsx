@@ -1,7 +1,8 @@
-import { useState, useCallback} from 'react'
+import { useState, useCallback, useMemo} from 'react'
 import Compteur1 from './Compteur1'
 import Compteur3 from './Compteur3'
 import Compteur4 from './Compteur4'
+import Compteur5 from './Compteur5'
 
 function App() {
   const [cpt, setCpt] = useState(0)
@@ -25,6 +26,11 @@ function App() {
       <Compteur4 value= {cpt} />
       <Compteur4 value= {cpt} />
       <button onClick= {handleClick}>Incrementer les deux</button>
+
+      <h1>Exo 5</h1>
+      <Compteur5 value= {cpt} />
+      <Compteur5 value= {cpt} />
+
     </>
   )
 }

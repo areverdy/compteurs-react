@@ -34,22 +34,29 @@ Les événements permettent de remonter des informations d'un composant enfant �
 const App = () => {
     const [name, setName] = useState('toto');
 
-    const handleNameChange = (newName) => {
+    const handleNameChange = (newName: string) => {
         setName(newName);
     };
 
     return (
         <div>
-            <ProfName name={name} onNameChange={handleNameChange} />
+            <ProfName onNameChange={handleNameChange} />
+            <p>{name}</p>
         </div>
     );
 };
 
-const ProfName = (props) => {
+const ProfName = (props: { onChange: (val: string) => void }) => {
+
+    const handleNameChange = useCallback(
+        () => {
+            props.onNameChange('titi');
+        }, [props.onNameChange]
+    );
+
     return (
         <div>
-            <h1>Prénom du prof : {props.name}</h1>
-            <button onClick={() => props.onNameChange('titi')}>Change name</button>
+            <button onClick={handleNameChange}>Change name</button>
         </div>
     );
 };
