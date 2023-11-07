@@ -2,14 +2,10 @@ import { useCallback, useState, useMemo } from "react";
 
 const Counter = (props: { value: number}) => {
     const [compteur, setCount] = useState(0)
-
-    const compteurTotal = useMemo(
-        () => compteur + props.value, 
-        [compteur, props.value]
-    )
+    
     
     const handleIncrement = useCallback(
-        () => { setCount(compteur +1); },
+        () => { setCount(compteur +1);},
         [compteur]
     )
 
@@ -20,9 +16,7 @@ const Counter = (props: { value: number}) => {
     
     return (
         <div>
-            <div>cpt : {compteurTotal}</div>
-            <div>props : {props.value}</div>
-            <div>state : {compteur}</div>
+            <div>cpt : {props.value}</div>
             <button onClick={handleIncrement}>Increment</button>
             <button onClick={handleDecrement}>Decrement</button>
         </div>

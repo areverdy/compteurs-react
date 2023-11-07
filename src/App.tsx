@@ -6,10 +6,20 @@ import Compteur5 from './Compteur5'
 
 function App() {
   const [cpt, setCpt] = useState(0)
+  const [cptDeux, setCptDeux] = useState(0)
+  const [cptExo5, septCptExo5] = useState (0)
 
   const handleClick = useCallback(() => {
     setCpt(cpt + 1)
   }, [cpt])
+
+  const handleClickDeux = useCallback(() => {
+    setCptDeux(cptDeux + 1)
+  }, [cptDeux])
+
+  const handleClickCinq = useCallback (() => {
+    septCptExo5 (cptExo5 + 1)
+  }, [cptExo5])
 
   return (
     <>
@@ -23,13 +33,14 @@ function App() {
       <button onClick= {handleClick}>Incrementer les deux</button>
 
       <h1>Exo 4</h1>
-      <Compteur4 value= {cpt} />
-      <Compteur4 value= {cpt} />
-      <button onClick= {handleClick}>Incrementer les deux</button>
+      <Compteur4 value= {cptDeux} />
+      <Compteur4 value= {cptDeux} />
+      <button onClick= {handleClickDeux}>Incrementer les deux</button>
 
       <h1>Exo 5</h1>
-      <Compteur5 value= {cpt} />
-      <Compteur5 value= {cpt} />
+      <Compteur5 value= {cptExo5} />
+      <Compteur5 value= {cptExo5} />
+      <button onClick= {handleClickCinq}>Incrementer chq compteur</button>
 
     </>
   )
